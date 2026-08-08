@@ -1,0 +1,17 @@
+-- ดึงข้อมูลผู้เล่น
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local Character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+local Humanoid = Character:WaitForChild("Humanoid")
+
+-- ตัวอย่างการปรับความเร็วตัวละคร (WalkSpeed)
+Humanoid.WalkSpeed = 32
+
+-- ตัวอย่างวนลูปเช็คพลังชีวิต
+task.spawn(function()
+    while task.wait(1) do
+        if Humanoid.Health < Humanoid.MaxHealth then
+            print("กำลังฟื้นฟูพลังชีวิต...")
+        end
+    end
+end)
